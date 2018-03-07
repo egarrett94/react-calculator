@@ -5,9 +5,9 @@ class Calculator2 extends Component {
 	constructor(props) {
 		super() 
 		this.state = {
-			value1 = 0,
-			value2 = 0,
-			operation = 'add'
+			value1:0,
+			value2:0,
+			operation:'add'
 		}
 		this.handleChange = this.handleChange.bind(this)
 	}
@@ -18,7 +18,32 @@ class Calculator2 extends Component {
 		})
 	}
 
+	updateInput(e) {
 
+		if (this.state.operation === 'add') {
+			this.setState({
+				result: parseInt(this.state.value1) + parseInt(this.state.value2)
+			})
+		}
+
+	 	if (this.state.operation === 'mult') {
+			this.setState({
+				result: parseInt(this.state.value1) * parseInt(this.state.value2)
+			})
+		}
+
+		if (this.state.operation === 'sub') {
+			this.setState({
+				result: parseInt(this.state.value1) - parseInt(this.state.value2)
+			})
+		}
+
+		if (this.state.operation === 'div') {
+			this.setState({
+				result: parseInt(this.state.value1) / parseInt(this.state.value2)
+			})
+		}
+	}
 
 
 	render() {
