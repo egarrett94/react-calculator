@@ -16,29 +16,32 @@ class Calculator extends Component {
 	}
 
 
-	addInput(e) {
-		this.setState({
-			result: parseInt(this.state.value1) + parseInt(this.state.value2)
-		})
+	updateInput(e) {
+
+		if (this.state.operation === 'add') {
+			this.setState({
+				result: parseInt(this.state.value1) + parseInt(this.state.value2)
+			})
+		}
+
+	 	if (this.state.operation === 'mult') {
+			this.setState({
+				result: parseInt(this.state.value1) * parseInt(this.state.value2)
+			})
+		}
+
+		if (this.state.operation === 'sub') {
+			this.setState({
+				result: parseInt(this.state.value1) - parseInt(this.state.value2)
+			})
+		}
+
+		if (this.state.operation === 'div') {
+			this.setState({
+				result: parseInt(this.state.value1) / parseInt(this.state.value2)
+			})
+		}
 	}
-
-	// multInput(e) {
-	// 	this.setState({
-	// 		result: parseInt(this.state.value1) * parseInt(this.state.value2)
-	// 	})
-	// }
-
-	// subInput(e) {
-	// 	this.setState({
-	// 		result: parseInt(this.state.value1) - parseInt(this.state.value2)
-	// 	})
-	// }
-
-	// divInput(e) {
-	// 	this.setState({
-	// 		result: parseInt(this.state.value1) / parseInt(this.state.value2)
-	// 	})
-	// }
 
 	handleChangeValue1(e) {
 		this.setState({
@@ -61,20 +64,20 @@ class Calculator extends Component {
 	render() {
 		return(
 			<div className="container">
-			  <h1>Add with React!</h1>
+			  <h1>Calculate with React!</h1>
 
 			  <div className="add">
 			    <input type="text" value={this.state.value1} onChange={this.handleChangeValue1}/>
-			    <select id='dropdown' value={this.state.operation}>
+			    <select id='dropdown' value={this.state.operation} onChange={this.handleChangeOperation}>
 			    	<option value="add">+</option>
 			    	<option value="sub">-</option>
 			    	<option value="mult">*</option>
 			    	<option value="div">/</option>
 			    </select>
 			    <input type="text" value={this.state.value2} onChange={this.handleChangeValue2}/>
-			    <span>=</span>
+			    <span> = </span>
 			    <h3>{this.state.result}</h3>
-			    <button onClick={ (e) => this.addInput(e) }>Calculate!</button>
+			    <button onClick={ (e) => this.updateInput(e) }>Calculate!</button>
 			  </div>
 			</div>
 		)

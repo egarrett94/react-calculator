@@ -1,5 +1,23 @@
+html {
+	font-family: monospace;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+}
+
+.container {
+	padding: 20px;
+	margin: 0 auto;
+	width: 450px;
+	height: 200px;
+	background-color: lightgrey;
+	border-radius: 15px;
+	border: outset 10px grey;
+}
+
+input, button, #dropdown {
+	padding: 10px;
+	border-radius: 5px;
 }
